@@ -1,4 +1,4 @@
-import { MapPin, ShoppingCart } from '@phosphor-icons/react'
+import { MapPin, ShoppingCartSimple } from '@phosphor-icons/react'
 import React from 'react'
 import logo from '../../assets/logo.svg'
 import {
@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
             </p>
           </Location>
           <CartButton type="button">
-            <ShoppingCart weight="fill" color="#c47f17" size={22} />
+            <ShoppingCartSimple weight="fill" color="#c47f17" size={22} />
             <CartCounter>
               <span>3</span>
             </CartCounter>
