@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
-export const Container = styled.header``
+export const Container = styled.header`
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; */
+  background: ${({ theme }) => theme.colors.background};
+`
 
 export const Content = styled.div`
   max-width: 1120px;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { CartProvider } from 'react-use-cart'
 import { ThemeProvider } from 'styled-components'
 import { Router } from './Router'
 import { GlobalStyles } from './styles/global'
@@ -9,7 +10,9 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        <Router />
+        <CartProvider>
+          <Router />
+        </CartProvider>
       </BrowserRouter>
       <GlobalStyles />
     </ThemeProvider>

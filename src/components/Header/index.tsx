@@ -1,5 +1,7 @@
 import { MapPin, ShoppingCartSimple } from '@phosphor-icons/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useCart } from 'react-use-cart'
 import logo from '../../assets/logo.svg'
 import {
   CartButton,
@@ -27,10 +29,14 @@ export const Header: React.FC = () => {
       .then((data) => setLocation(data))
   }, [])
 
+  const { totalUniqueItems } = useCart()
+
   return (
     <Container>
       <Content>
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
         <LocationWithShoppingCartButton>
           <Location>
             <MapPin weight="fill" color="#8047f8" size={22} />
@@ -39,10 +45,14 @@ export const Header: React.FC = () => {
             </p>
           </Location>
           <CartButton type="button">
-            <ShoppingCartSimple weight="fill" color="#c47f17" size={22} />
-            <CartCounter>
-              <span>3</span>
-            </CartCounter>
+            <Link to="/checkout">
+              <ShoppingCartSimple weight="fill" color="#c47f17" size={22} />
+              {totalUniqueItems > 0 && (
+                <CartCounter>
+                  <span>{totalUniqueItems}</span>
+                </CartCounter>
+              )}
+            </Link>
           </CartButton>
         </LocationWithShoppingCartButton>
       </Content>

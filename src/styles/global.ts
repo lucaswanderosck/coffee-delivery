@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.colors.background};
 }
 
 body, input, button, textarea {
