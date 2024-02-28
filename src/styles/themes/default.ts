@@ -37,8 +37,8 @@ export const defaultTheme = {
   },
 
   button: {
-    g: '0.75rem',
-    m: '0.875rem',
+    g: '0.875rem',
+    m: '0.75rem',
     tag: '0.625rem',
   },
 }

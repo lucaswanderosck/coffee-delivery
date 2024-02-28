@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.li`
   width: 256px;
   height: 310px;
-  padding: 0 12px;
+  padding: 0 0.75rem;
   border-radius: 6px 36px;
   background-color: ${({ theme }) => theme.colors['base-card']};
 
@@ -15,7 +15,7 @@ export const Container = styled.li`
 export const ImageCoffee = styled.div`
   width: 120px;
   height: 120px;
-  margin-top: -20px;
+  margin-top: -1.25rem;
   margin-bottom: 0.75rem;
 
   img {
@@ -41,7 +41,7 @@ export const BuyActions = styled.div`
   display: flex;
   align-items: center;
   margin-top: auto;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 
   > p {
     color: ${({ theme }) => theme.colors['base-text']};
@@ -62,8 +62,8 @@ export const BuyActions = styled.div`
 `
 
 export const AddCoffee = styled.button`
-  width: 38px;
-  height: 38px;
+  width: 2.375rem;
+  height: 2.375rem;
   border: 0;
   background: ${({ theme }) => theme.colors['purple-dark']};
   padding: 0.5rem;

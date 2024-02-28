@@ -39,8 +39,8 @@ export const Location = styled.span`
 `
 
 export const CartButton = styled.button`
-  width: 38px;
-  height: 38px;
+  width: 2.375rem;
+  height: 2.375rem;
   border: 0;
   background: ${({ theme }) => theme.colors['yellow-light']};
   padding: 0.5rem;
