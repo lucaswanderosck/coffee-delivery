@@ -26,7 +26,7 @@ export const CardCoffee: React.FC<Props> = ({
   return (
     <>
       <Container>
-        <img src={image} alt={title} />
+        <img src={`/coffees/${image}`} alt={title} />
         <div>
           <p>{title}</p>
           <div>

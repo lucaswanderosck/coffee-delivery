@@ -46,7 +46,7 @@ export const Card: React.FC<Props> = ({ coffee }) => {
   return (
     <Container>
       <ImageCoffee>
-        <img src={coffee.image} alt={coffee.title} />
+        <img src={`/coffees/${coffee.image}`} alt={coffee.title} />
       </ImageCoffee>
       <div>
         {coffee.tags.map((tag) => (
