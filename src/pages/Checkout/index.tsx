@@ -2,8 +2,11 @@ import React from 'react'
 import {
   ButtonConfirm,
   Container,
-  Form,
+  DeliveryAddress,
+  DeliveryAddressForm,
+  DeliveryAddressTitle,
   FormCheckout,
+  Order,
   Payment,
   PaymentButton,
   PaymentTitle,
@@ -12,10 +15,17 @@ import {
   SelectedCoffees,
 } from './styles'
 
-import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from '@phosphor-icons/react'
 import { useCart } from 'react-use-cart'
 import { formatPrice } from '../../utils/formatters'
 import { CardCoffee } from './components/CardCoffee'
+import { InputText } from './components/InputText'
 
 export const Checkout: React.FC = () => {
   const { items, updateItemQuantity, removeItem, cartTotal } = useCart()
@@ -24,22 +34,76 @@ export const Checkout: React.FC = () => {
 
   return (
     <Container>
-      <Form>
+      <Order>
         <div>
           <h3>Complete seu pedido</h3>
-          <FormCheckout>
-            <div></div>
+          <FormCheckout
+            id="order"
+            onSubmit={() => console.log('Ordem enviada')}
+          >
+            <DeliveryAddress>
+              <DeliveryAddressTitle>
+                <MapPinLine size={22} color="#c47f17" />
+                <div>
+                  <h4>Endereço de Entrega</h4>
+                  <p>Informe o endereço onde deseja receber seu pedido </p>
+                </div>
+              </DeliveryAddressTitle>
+
+              <DeliveryAddressForm>
+                <InputText
+                  placeholder="CEP"
+                  type="number"
+                  containerProps={{ style: { gridArea: 'cep' } }}
+                />
+
+                <InputText
+                  placeholder="Rua"
+                  containerProps={{ style: { gridArea: 'street' } }}
+                />
+
+                <InputText
+                  placeholder="Número"
+                  type="number"
+                  containerProps={{ style: { gridArea: 'number' } }}
+                />
+
+                <InputText
+                  placeholder="Complemento"
+                  optional
+                  containerProps={{ style: { gridArea: 'fullAddress' } }}
+                />
+
+                <InputText
+                  placeholder="Bairro"
+                  containerProps={{ style: { gridArea: 'neighborhood' } }}
+                />
+
+                <InputText
+                  placeholder="Cidade"
+                  containerProps={{ style: { gridArea: 'city' } }}
+                />
+
+                <InputText
+                  placeholder="UF"
+                  maxLength={2}
+                  containerProps={{ style: { gridArea: 'state' } }}
+                />
+              </DeliveryAddressForm>
+            </DeliveryAddress>
+
             <Payment>
               <PaymentTitle>
-                <h4>
-                  <CurrencyDollar size={22} color="#8047f8" />
-                  <span>Pagamento</span>
-                </h4>
-                <p>
-                  O pagamento é feito na entrega. Escolha a forma que deseja
-                  pagar
-                </p>
+                <CurrencyDollar size={22} color="#8047f8" />
+                <div>
+                  <h4>Pagamento</h4>
+                  <p>
+                    O pagamento é feito na entrega. Escolha a forma que deseja
+                    pagar
+                  </p>
+                </div>
               </PaymentTitle>
+
               <PaymentType>
                 <PaymentButton value="credit">
                   <CreditCard size={16} color="#8047f8" />
@@ -90,10 +154,12 @@ export const Checkout: React.FC = () => {
                 <span>{formatPrice(cartTotal + delivery)}</span>
               </strong>
             </Resume>
-            <ButtonConfirm type="button">Confirmar Pedido</ButtonConfirm>
+            <ButtonConfirm type="submit" form="order">
+              Confirmar Pedido
+            </ButtonConfirm>
           </SelectedCoffees>
         </div>
-      </Form>
+      </Order>
     </Container>
   )
 }

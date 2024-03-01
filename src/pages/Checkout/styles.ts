@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 `
 
-export const Form = styled.form`
+export const Order = styled.div`
   display: grid;
   grid-template-columns: 640px 1fr;
   grid-template-rows: 1fr;
@@ -22,7 +22,7 @@ export const Form = styled.form`
   grid-row-gap: 0px;
 `
 
-export const FormCheckout = styled.div`
+export const FormCheckout = styled.form`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 372px 207px;
@@ -49,20 +49,19 @@ export const Payment = styled.div`
 `
 
 export const PaymentTitle = styled.div`
-  > h4 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+
+  h4 {
     color: ${({ theme }) => theme.colors['base-subtitle']};
     font-size: ${({ theme }) => theme.text.md};
     font-weight: 400;
     margin-bottom: 0.125rem;
   }
 
-  > p {
+  p {
     color: ${({ theme }) => theme.colors['base-text']};
     font-size: ${({ theme }) => theme.text.sm};
-    margin-left: 1.875rem;
   }
 `
 
@@ -137,4 +136,37 @@ export const ButtonConfirm = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors['yellow-dark']};
   }
+`
+export const DeliveryAddress = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const DeliveryAddressTitle = styled.div`
+  display: flex;
+  gap: 0.5rem;
+
+  h4 {
+    color: ${({ theme }) => theme.colors['base-subtitle']};
+    font-size: ${({ theme }) => theme.text.md};
+    font-weight: 400;
+    margin-bottom: 0.125rem;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors['base-text']};
+    font-size: ${({ theme }) => theme.text.sm};
+  }
+`
+
+export const DeliveryAddressForm = styled.div`
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  grid-gap: 1rem 0.75rem;
+  grid-template-areas:
+    'cep . .'
+    'street street street'
+    'number fullAddress fullAddress'
+    'neighborhood city state';
 `
