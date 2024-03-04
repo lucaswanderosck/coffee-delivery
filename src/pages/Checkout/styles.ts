@@ -27,7 +27,7 @@ export const FormCheckout = styled.form`
   grid-template-columns: 1fr;
   grid-template-rows: 372px 207px;
   grid-column-gap: 0px;
-  grid-row-gap: 12px;
+  grid-row-gap: 0.75rem;
 
   > div {
     background: ${({ theme }) => theme.colors['base-card']};
@@ -143,22 +143,7 @@ export const DeliveryAddress = styled.div`
   gap: 2rem;
 `
 
-export const DeliveryAddressTitle = styled.div`
-  display: flex;
-  gap: 0.5rem;
-
-  h4 {
-    color: ${({ theme }) => theme.colors['base-subtitle']};
-    font-size: ${({ theme }) => theme.text.md};
-    font-weight: 400;
-    margin-bottom: 0.125rem;
-  }
-
-  p {
-    color: ${({ theme }) => theme.colors['base-text']};
-    font-size: ${({ theme }) => theme.text.sm};
-  }
-`
+export const DeliveryAddressTitle = styled(PaymentTitle)``
 
 export const DeliveryAddressForm = styled.div`
   display: grid;

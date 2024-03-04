@@ -34,7 +34,6 @@ export const InputText = forwardRef(function InputText(
     <Container {...containerProps}>
       <Content data-state={isFocused ? 'focused' : 'blurred'}>
         <input onFocus={handleFocus} onBlur={handleBlur} ref={ref} {...rest} />
-
         {optional ? <span>Opcional</span> : null}
       </Content>
     </Container>

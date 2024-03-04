@@ -27,10 +27,28 @@ import { formatPrice } from '../../utils/formatters'
 import { CardCoffee } from './components/CardCoffee'
 import { InputText } from './components/InputText'
 
+type locationProps = {
+  city: string
+  region_code: string
+  postal: string
+}
+
 export const Checkout: React.FC = () => {
   const { items, updateItemQuantity, removeItem, cartTotal } = useCart()
 
   const delivery = 3.5
+
+  const [location, setLocation] = React.useState<locationProps>({
+    city: '',
+    region_code: '',
+    postal: '',
+  })
+
+  React.useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then((response) => response.json())
+      .then((data) => setLocation(data))
+  }, [])
 
   return (
     <Container>
@@ -55,6 +73,7 @@ export const Checkout: React.FC = () => {
                   placeholder="CEP"
                   type="number"
                   containerProps={{ style: { gridArea: 'cep' } }}
+                  defaultValue={location.postal}
                 />
 
                 <InputText
@@ -82,12 +101,14 @@ export const Checkout: React.FC = () => {
                 <InputText
                   placeholder="Cidade"
                   containerProps={{ style: { gridArea: 'city' } }}
+                  defaultValue={location.city}
                 />
 
                 <InputText
                   placeholder="UF"
                   maxLength={2}
                   containerProps={{ style: { gridArea: 'state' } }}
+                  defaultValue={location.region_code}
                 />
               </DeliveryAddressForm>
             </DeliveryAddress>
