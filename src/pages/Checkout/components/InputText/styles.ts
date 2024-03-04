@@ -45,3 +45,9 @@ export const Content = styled.label`
     font-style: italic;
   }
 `
+
+export const ErrorMessage = styled.p`
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.text.xs};
+  color: ${({ theme }) => theme.colors.danger};
+`

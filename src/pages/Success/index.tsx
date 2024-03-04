@@ -14,7 +14,7 @@ export const Success: React.FC = () => {
         <OrderInfo>
           <div>
             <Icon variant="purple">
-              <MapPin color="#fff" weight="fill" />
+              <MapPin color="#fff" weight="fill" size={16} />
             </Icon>
             <Info>
               <p>
@@ -25,7 +25,7 @@ export const Success: React.FC = () => {
           </div>
           <div>
             <Icon variant="yellow">
-              <Timer color="#fff" weight="fill" />
+              <Timer color="#fff" weight="fill" size={16} />
             </Icon>
             <Info>
               <p>Previsão de Entrega</p>
@@ -34,7 +34,7 @@ export const Success: React.FC = () => {
           </div>
           <div>
             <Icon variant="yellow-dark">
-              <CurrencyDollar color="#fff" />
+              <CurrencyDollar color="#fff" size={16} />
             </Icon>
             <Info>
               <p>Pagamento na Entrega</p>

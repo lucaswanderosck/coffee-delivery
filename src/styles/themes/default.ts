@@ -19,6 +19,7 @@ export const defaultTheme = {
 
     background: '#fafafa',
     white: '#fff',
+    danger: '#ff4d4f',
   },
 
   text: {
