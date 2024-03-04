@@ -8,6 +8,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin: 4rem 0;
+  }
 `
 
 export const Content = styled.div`
@@ -19,6 +23,15 @@ export const Content = styled.div`
 
   > img {
     margin-left: auto;
+  }
+
+  @media (max-width: 768px) {
+    width: 75%;
+    grid-template-columns: 1fr;
+
+    > img {
+      display: none;
+    }
   }
 `
 export const Title = styled.div`
@@ -52,6 +65,10 @@ export const TitleItems = styled.ul`
     display: flex;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 `
 

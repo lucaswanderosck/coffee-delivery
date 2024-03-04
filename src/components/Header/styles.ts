@@ -18,6 +18,10 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    width: 75%;
+  }
 `
 
 export const LocationWithShoppingCartButton = styled.div`

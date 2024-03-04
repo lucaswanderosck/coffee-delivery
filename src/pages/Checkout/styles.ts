@@ -133,7 +133,12 @@ export const ButtonConfirm = styled.button`
   margin-top: 1.5rem;
   transition: background-color 0.2s ease-in-out;
 
-  &:hover {
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
     background-color: ${({ theme }) => theme.colors['yellow-dark']};
   }
 `

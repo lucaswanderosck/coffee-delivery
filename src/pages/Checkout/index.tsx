@@ -34,9 +34,10 @@ type locationProps = {
 }
 
 export const Checkout: React.FC = () => {
-  const { items, updateItemQuantity, removeItem, cartTotal } = useCart()
+  const { items, updateItemQuantity, removeItem, cartTotal, isEmpty } =
+    useCart()
 
-  const delivery = 3.5
+  const deliveryPrice = 3.5
 
   const [location, setLocation] = React.useState<locationProps>({
     city: '',
@@ -50,15 +51,17 @@ export const Checkout: React.FC = () => {
       .then((data) => setLocation(data))
   }, [])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log('foi')
+  }
+
   return (
     <Container>
       <Order>
         <div>
           <h3>Complete seu pedido</h3>
-          <FormCheckout
-            id="order"
-            onSubmit={() => console.log('Ordem enviada')}
-          >
+          <FormCheckout id="order" onSubmit={handleSubmit}>
             <DeliveryAddress>
               <DeliveryAddressTitle>
                 <MapPinLine size={22} color="#c47f17" />
@@ -145,6 +148,7 @@ export const Checkout: React.FC = () => {
         <div>
           <h3>Cafés Selecionados</h3>
           <SelectedCoffees>
+            {isEmpty && <strong>Não há items no carrinho</strong>}
             {items.map((coffee) => (
               <CardCoffee
                 key={coffee.id}
@@ -168,14 +172,15 @@ export const Checkout: React.FC = () => {
               </p>
               <p>
                 <span>Entrega</span>
-                <span>{formatPrice(delivery)}</span>
+                <span>{formatPrice(deliveryPrice)}</span>
               </p>
               <strong>
                 <span>Total</span>
-                <span>{formatPrice(cartTotal + delivery)}</span>
+                <span>{formatPrice(cartTotal + deliveryPrice)}</span>
               </strong>
             </Resume>
-            <ButtonConfirm type="submit" form="order">
+
+            <ButtonConfirm type="submit" form="order" disabled={isEmpty}>
               Confirmar Pedido
             </ButtonConfirm>
           </SelectedCoffees>
