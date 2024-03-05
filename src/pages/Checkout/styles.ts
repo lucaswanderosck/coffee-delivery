@@ -57,6 +57,7 @@ export const ButtonConfirm = styled.button`
   cursor: pointer;
   width: 100%;
   text-transform: uppercase;
+  font-weight: bold;
   padding: 1rem 0.5rem;
   margin-top: 1.5rem;
   transition: background-color 0.2s ease-in-out;

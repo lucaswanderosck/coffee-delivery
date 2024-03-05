@@ -9,6 +9,7 @@ import {
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 import { InputText } from '../InputText'
 import {
@@ -35,26 +36,26 @@ const AddressValidationSchema = z.object({
   paymentMethod: z.enum(['credit', 'debit', 'money']),
 })
 
-type TypeAddressSchema = z.infer<typeof AddressValidationSchema>
+export type TypeAddressSchema = z.infer<typeof AddressValidationSchema>
 
 export const FormCheckout: React.FC<Props> = ({ ...props }) => {
-  const { control, register, handleSubmit, reset, formState } =
-    useForm<TypeAddressSchema>({
-      resolver: zodResolver(AddressValidationSchema),
-    })
+  const {
+    control,
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<TypeAddressSchema>({
+    resolver: zodResolver(AddressValidationSchema),
+  })
 
-  const { errors } = formState
+  const navigate = useNavigate()
 
-  const HandleAddressSubmit = (data: TypeAddressSchema) => {
-    const { city, neighborhood, paymentMethod, number, state, street } = data
-    console.log({
-      city,
-      neighborhood,
-      paymentMethod,
-      number,
-      state,
-      street,
-    })
+  const HandleAddressSubmit = async (data: TypeAddressSchema) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    navigate('/success', { state: data })
+
     reset()
   }
 

@@ -18,6 +18,8 @@ export const Checkout: React.FC = () => {
 
   const deliveryPrice = 3.5
 
+  const isDisabled = isEmpty
+
   return (
     <Container>
       <Order>
@@ -60,7 +62,7 @@ export const Checkout: React.FC = () => {
               </strong>
             </Resume>
 
-            <ButtonConfirm type="submit" form="order" disabled={isEmpty}>
+            <ButtonConfirm type="submit" form="order" disabled={isDisabled}>
               Confirmar Pedido
             </ButtonConfirm>
           </SelectedCoffees>

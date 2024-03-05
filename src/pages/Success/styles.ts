@@ -9,6 +9,7 @@ export const Container = styled.div`
     font-size: ${({ theme }) => theme.title.lg};
     color: ${({ theme }) => theme.colors['yellow-dark']};
     font-family: 'Baloo 2', sans-serif;
+    font-weight: 900;
   }
 
   > p {

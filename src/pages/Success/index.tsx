@@ -1,10 +1,32 @@
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
 import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import successSvg from '../../assets/success.svg'
 import { Icon } from '../../components/Hero/styles'
+import { convertPaymentMethod } from '../../utils/formatters'
+import { TypeAddressSchema } from '../Checkout/components/FormCheckout'
 import { Container, Content, Info, OrderInfo } from './styles'
 
+interface LocationStateType {
+  state: TypeAddressSchema
+}
+
 export const Success: React.FC = () => {
+  const { state } = useLocation() as LocationStateType
+  const navigate = useNavigate()
+
+  React.useEffect(() => {
+    if (!state) {
+      navigate('/')
+    }
+  }, [state, navigate])
+
+  console.log(state)
+
+  if (!state) {
+    return null
+  }
+
   return (
     <Container>
       <h1>Uhu! Pedido confirmado</h1>
@@ -18,8 +40,13 @@ export const Success: React.FC = () => {
             </Icon>
             <Info>
               <p>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
-                <p>Farrapos - Porto Alegre, RS</p>
+                Entrega em{' '}
+                <strong>
+                  {state.street}, {state.number}
+                </strong>
+                <p>
+                  {state.neighborhood} - {state.city}, {state.state}
+                </p>
               </p>
             </Info>
           </div>
@@ -38,7 +65,7 @@ export const Success: React.FC = () => {
             </Icon>
             <Info>
               <p>Pagamento na Entrega</p>
-              <strong>Cartão de Crédito</strong>
+              <strong>{convertPaymentMethod(state.paymentMethod)}</strong>
             </Info>
           </div>
         </OrderInfo>
