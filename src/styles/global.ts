@@ -19,5 +19,9 @@ body, input, button, textarea {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1rem;
+
+    @media (max-width: 768px) {
+        font-size: 87.5%;
+    }
 }
 `
