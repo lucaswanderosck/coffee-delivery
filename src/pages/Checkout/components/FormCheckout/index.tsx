@@ -10,6 +10,7 @@ import * as RadioGroup from '@radix-ui/react-radio-group'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { useCart } from 'react-use-cart'
 import { z } from 'zod'
 import { InputText } from '../InputText'
 import {
@@ -51,11 +52,13 @@ export const FormCheckout: React.FC<Props> = ({ ...props }) => {
 
   const navigate = useNavigate()
 
+  const { emptyCart } = useCart()
+
   const HandleAddressSubmit = async (data: TypeAddressSchema) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     navigate('/success', { state: data })
-
+    emptyCart()
     reset()
   }
 
@@ -146,15 +149,15 @@ export const FormCheckout: React.FC<Props> = ({ ...props }) => {
           render={({ field }) => (
             <RadioGroup.Root>
               <PaymentType value={field.value} onValueChange={field.onChange}>
-                <PaymentButton value="credit">
+                <PaymentButton value="credit" required>
                   <CreditCard size={16} color="#8047f8" />
                   <span>Cartão de Crédito</span>
                 </PaymentButton>
-                <PaymentButton value="debit">
+                <PaymentButton value="debit" required>
                   <Bank size={16} color="#8047f8" />
                   <span>Cartão de Débito</span>
                 </PaymentButton>
-                <PaymentButton value="money">
+                <PaymentButton value="money" required>
                   <Money size={16} color="#8047f8" />
                   <span>Dinheiro</span>
                 </PaymentButton>

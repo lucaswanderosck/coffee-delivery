@@ -1,4 +1,4 @@
-import { MapPin, ShoppingCartSimple } from '@phosphor-icons/react'
+import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
           </Location>
           <CartButton type="button">
             <Link to="/checkout">
-              <ShoppingCartSimple weight="fill" color="#c47f17" size={22} />
+              <ShoppingCart weight="fill" color="#c47f17" size={22} />
               {totalUniqueItems > 0 && (
                 <CartCounter>
                   <span>{totalUniqueItems}</span>

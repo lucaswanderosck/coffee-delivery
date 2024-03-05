@@ -25,6 +25,15 @@ export const SelectedCoffees = styled.div`
   background: ${({ theme }) => theme.colors['base-card']};
   border-radius: 6px 44px;
   padding: 2.5rem;
+
+  > strong {
+    display: block;
+    color: ${({ theme }) => theme.colors['base-text']};
+    font-size: ${({ theme }) => theme.text.lg};
+    font-weight: bold;
+    text-align: start;
+    margin-bottom: 2rem;
+  }
 `
 
 export const Resume = styled.div`

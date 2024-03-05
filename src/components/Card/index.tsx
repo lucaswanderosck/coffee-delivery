@@ -1,15 +1,15 @@
-import { ShoppingCartSimple } from '@phosphor-icons/react'
+import { ShoppingCart } from '@phosphor-icons/react'
 import React from 'react'
 import { useCart } from 'react-use-cart'
 import { ButtonAmount } from '../ButtonAmount'
 import {
-  AddCoffee,
-  BuyActions,
-  Container,
-  DescriptionCoffee,
-  ImageCoffee,
-  Tag,
-  TitleCoffee,
+    AddCoffee,
+    BuyActions,
+    Container,
+    DescriptionCoffee,
+    ImageCoffee,
+    Tag,
+    TitleCoffee,
 } from './styles'
 
 interface Props {
@@ -72,7 +72,7 @@ export const Card: React.FC<Props> = ({ coffee }) => {
             onClick={handleAddItemInCart}
             disabled={inCart(coffee.id)}
           >
-            <ShoppingCartSimple color="#fff" weight="fill" size={22} />
+            <ShoppingCart color="#fff" weight="fill" size={22} />
           </AddCoffee>
         </div>
       </BuyActions>

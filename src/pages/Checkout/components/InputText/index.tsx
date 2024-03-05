@@ -34,13 +34,13 @@ export const InputText = forwardRef(function InputText(
 
   return (
     <Container {...containerProps}>
-      {error?.message ? (
-        <ErrorMessage role="alert">{error.message}</ErrorMessage>
-      ) : null}
       <Content data-state={isFocused ? 'focused' : 'blurred'}>
         <input onFocus={handleFocus} onBlur={handleBlur} ref={ref} {...rest} />
         {optional ? <span>Opcional</span> : null}
       </Content>
+      {error?.message ? (
+        <ErrorMessage role="alert">{error.message}</ErrorMessage>
+      ) : null}
     </Container>
   )
 })
