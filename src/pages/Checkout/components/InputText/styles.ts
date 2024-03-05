@@ -36,6 +36,14 @@ export const Content = styled.label`
     &::placeholder {
       color: ${({ theme }) => theme.colors['base-label']};
     }
+
+    &[type='number'] {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
   }
 
   span {

@@ -84,9 +84,11 @@ export const AddCoffee = styled.button`
 
 interface TagProps {
   size: 'small' | 'big'
+  selected?: boolean
 }
 
 export const Tag = styled.span<TagProps>`
+  user-select: none;
   display: inline-block;
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.button.tag};
@@ -99,6 +101,8 @@ export const Tag = styled.span<TagProps>`
     ${({ theme, size }) =>
       size === 'small' ? 'transparent' : theme.colors.yellow};
   padding: ${({ size }) => (size === 'small' ? '4px 8px' : '6px 12px')};
+  background: ${({ selected, theme }) =>
+    selected && theme.colors['yellow-light']};
   cursor: ${({ size }) => size === 'big' && 'pointer'};
 
   & + & {

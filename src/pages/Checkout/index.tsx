@@ -30,7 +30,7 @@ export const Checkout: React.FC = () => {
         <div>
           <h3>Cafés Selecionados</h3>
           <SelectedCoffees>
-            {isEmpty && <strong>Não há items no carrinho</strong>}
+            {isEmpty && <strong>Não há itens no carrinho</strong>}
             {items.map((coffee) => (
               <CardCoffee
                 key={coffee.id}

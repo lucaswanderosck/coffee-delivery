@@ -8,6 +8,13 @@ export const Container = styled.main`
   @media (max-width: 768px) {
     width: 65%;
   }
+
+  > p {
+    color: ${({ theme }) => theme.colors['base-text']};
+    font-size: ${({ theme }) => theme.text.md};
+    font-weight: bold;
+    margin-top: 2rem;
+  }
 `
 export const List = styled.ul`
   margin: 3.375rem 0 10rem;

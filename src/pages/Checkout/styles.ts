@@ -10,6 +10,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.colors['base-subtitle']};
     font-family: 'Ballo 2', sans-serif;
     margin: 2.5rem 0 1rem;
+    font-weight: 900;
   }
 `
 
