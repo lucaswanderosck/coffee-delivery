@@ -11,6 +11,8 @@ export const GlobalStyles = createGlobalStyle`
 
 body {
     background-color: ${({ theme }) => theme.colors.background};
+    padding-bottom: 6rem;
+    overflow-x: hidden;
 }
 
 body, input, button, textarea {

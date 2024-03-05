@@ -5,6 +5,11 @@ export const Container = styled.div`
   padding: 0.5rem 0.25rem;
   display: flex;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   img {
     width: 4rem;
     height: 4rem;
@@ -33,6 +38,10 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+      @media (max-width: 768px) {
+        margin-top: 0.5rem;
+      }
     }
   }
 `

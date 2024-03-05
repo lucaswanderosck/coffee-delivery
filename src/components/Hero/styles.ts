@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    margin: 4rem 0;
+    margin-top: 5rem;
   }
 `
 

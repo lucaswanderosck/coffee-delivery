@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   max-width: 1120px;
   width: 100%;
-  margin: 0 auto 200px;
+  margin: 0 auto;
 
   h3 {
     font-size: ${({ theme }) => theme.title.xs};
@@ -11,6 +11,10 @@ export const Container = styled.div`
     font-family: 'Ballo 2', sans-serif;
     margin: 2.5rem 0 1rem;
     font-weight: 900;
+  }
+
+  @media (max-width: 768px) {
+    width: 85%;
   }
 `
 
@@ -20,6 +24,11 @@ export const Order = styled.div`
   grid-template-rows: 1fr;
   grid-column-gap: 2rem;
   grid-row-gap: 0px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const SelectedCoffees = styled.div`

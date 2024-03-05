@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const Container = styled.form`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 207px;
+  grid-template-rows: 2fr 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0.75rem;
 
@@ -18,7 +18,7 @@ export const Container = styled.form`
 export const Payment = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2rem;
 `
 
 export const PaymentTitle = styled.div`
@@ -42,6 +42,10 @@ export const PaymentType = styled(RadioGroup.Root)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 interface PaymentButtonProps {
@@ -89,4 +93,16 @@ export const DeliveryAddressForm = styled.div`
     'street street street'
     'number fullAddress fullAddress'
     'neighborhood city state';
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'cep'
+      'street'
+      'number'
+      'fullAddress'
+      'neighborhood'
+      'city'
+      'state';
+  }
 `
